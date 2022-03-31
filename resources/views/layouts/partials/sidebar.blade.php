@@ -26,7 +26,8 @@
         
                     with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="{{ route('dashboard') }}"
+                        class="nav-link {{ request()->is('dashboard*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -35,106 +36,107 @@
                 </li>
 
                 @if (auth()->user()->hasRole('admin') ||
-    auth()->user()->hasRole('donatur'))
-                    <li class="nav-header">MASTER</li>
+                auth()->user()->hasRole('donatur'))
+                <li class="nav-header">MASTER</li>
 
-                    <li class="nav-item">
-                        <a href="{{ route('category.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Kategori
-                            </p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="{{ route('category.index') }}"
+                        class="nav-link {{ request()->is('category*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Kategori
+                        </p>
+                    </a>
+                </li>
 
-                    <li class="nav-item">
-                        <a href="pages/widgets.html" class="nav-link">
-                            <i class="nav-icon fas fa-th-large"></i>
-                            <p>
-                                Project
-                            </p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="pages/widgets.html" class="nav-link">
+                        <i class="nav-icon fas fa-th-large"></i>
+                        <p>
+                            Project
+                        </p>
+                    </a>
+                </li>
 
-                    <li class="nav-header">REFERENSI</li>
+                <li class="nav-header">REFERENSI</li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Donatur
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
-                            <p>
-                                Daftar Donasi
-                            </p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Donatur
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Daftar Donasi
+                        </p>
+                    </a>
+                </li>
                 @endif
 
                 @if (auth()->user()->hasRole('admin'))
-                    <li class="nav-header">INFORMASI</li>
+                <li class="nav-header">INFORMASI</li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tree"></i>
-                            <p>
-                                Kontak Masuk
-                            </p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Kontak Masuk
+                        </p>
+                    </a>
+                </li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-edit"></i>
-                            <p>
-                                Subscribers
-                            </p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Subscribers
+                        </p>
+                    </a>
+                </li>
                 @endif
 
                 @if (auth()->user()->hasRole('admin') ||
-    auth()->user()->hasRole('donatur'))
-                    <li class="nav-header">REPORT</li>
+                auth()->user()->hasRole('donatur'))
+                <li class="nav-header">REPORT</li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-table"></i>
-                            <p>
-                                Laporan
-                            </p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Laporan
+                        </p>
+                    </a>
+                </li>
                 @endif
 
                 @if (auth()->user()->hasRole('donatur'))
-                    <li class="nav-header">LOG</li>
+                <li class="nav-header">LOG</li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>
-                                Log Aktivitas
-                            </p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-info-circle"></i>
+                        <p>
+                            Log Aktivitas
+                        </p>
+                    </a>
+                </li>
                 @endif
 
                 <li class="nav-header">PENGATURAN</li>
                 @if (auth()->user()->hasRole('admin'))
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-cog"></i>
-                            <p>
-                                Setting
-                            </p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            Setting
+                        </p>
+                    </a>
+                </li>
                 @endif
 
 
